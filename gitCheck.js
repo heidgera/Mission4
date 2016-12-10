@@ -39,7 +39,7 @@ baseHash.outHandler = (data)=> {
 };
 
 var pull = new Call('git');
-pull.setArguments(['pull']);
+pull.setArguments(['checkout', '.']);
 pull.outHandler = (data)=> {
   console.log(data);
 };
