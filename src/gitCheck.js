@@ -2,6 +2,8 @@
 
 var Call = require('./call.js').call;
 
+console.log(__dirname);
+
 var fetch = new Call('git');
 fetch.setArguments(['fetch']);
 
@@ -58,4 +60,4 @@ var compare = ()=> {
   }
 };
 
-setInterval(fetch.run, 60000);
+setInterval(fetch.run, 30000);
