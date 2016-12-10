@@ -45,14 +45,14 @@ pull.outHandler = (data)=> {
 };
 
 var checkout = new Call('git');
-checkout.setArguments(['checkout','.']);
+checkout.setArguments(['checkout', '.']);
 checkout.outHandler = (data)=> {
   console.log(data);
 };
 
-checkout.onClose = ()=>{
+checkout.onClose = ()=> {
   pull.run();
-}
+};
 
 pull.onClose = ()=> {
   console.log('Updated!');
