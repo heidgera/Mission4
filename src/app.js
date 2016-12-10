@@ -86,6 +86,27 @@ var checkAnswer = ()=> {
         µ('#console').scrollTop = µ('#console').scrollHeight;
       }, 2000);
     }
+  } else if (fld.textContent == 'ipaddress') {
+    var os = require('os');
+
+    var addresses = '';
+
+    var interfaces = os.networkInterfaces();
+    var addresses = [];
+    for (var k in interfaces) {
+      for (var k2 in interfaces[k]) {
+        var address = interfaces[k][k2];
+        if (address.family === 'IPv4' && !address.internal) {
+          //addresses.push(address.address);
+          addresses += address.address + '; ';
+        }
+      }
+    }
+
+    cur = newPrompt(addresses);
+    µ('.cursor', cur)[0].style.display = 'inline-block';
+    µ('#console').appendChild(cur);
+    µ('#console').scrollTop = µ('#console').scrollHeight;
   } else {
     var resp = µ('#' + µ('|>resp', ques) + ' .err', µ('#responses')).cloneNode(true);
     µ('#console').appendChild(resp);
