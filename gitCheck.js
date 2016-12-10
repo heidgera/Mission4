@@ -44,6 +44,16 @@ pull.outHandler = (data)=> {
   console.log(data);
 };
 
+var checkout = new Call('git');
+checkout.setArguments(['checkout','.']);
+checkout.outHandler = (data)=> {
+  console.log(data);
+};
+
+checkout.onClose = ()=>{
+  pull.run();
+}
+
 pull.onClose = ()=> {
   console.log('Updated!');
   location.reload();
@@ -55,7 +65,7 @@ var compare = ()=> {
     if (remoteHash.data == baseHash.data || localHash.data == remoteHash.data) {
       console.log('Up to date.');
     } else {
-      pull.run();
+      checkout.run();
     }
   }
 };
