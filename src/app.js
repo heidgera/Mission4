@@ -2,8 +2,6 @@
 
 console.log('here we go');
 
-require('./gitCheck.js');
-
 require('./vendor/Muse/utils.js');
 
 var hardware = require('./hardware.js');

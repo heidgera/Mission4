@@ -29,7 +29,7 @@ exports.call = function(cmd) {
 
   _this.run = () => {
     _this.running = true;
-    let proc = spawn(_this.command, args, { cwd: __dirname + '/../' });
+    let proc = spawn(_this.command, args, { cwd: __dirname });
     proc.stdout.on('data', (data)=> {
       _this.outHandler(data.toString());
     });
