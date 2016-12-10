@@ -1,0 +1,150 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true" />
+    <link rel="stylesheet" href="css/main.css"></link>
+    <link rel="stylesheet" href="css/keyboard.css"></link>
+    <!-- <script data-main="src/app" src="src/vendor/require.min.js"></script> -->
+    <!-- <hard-ware type="pi" serialport="usbmodem">
+      <in-put type="analog" pin="0" report="30" low="0" hi="1023" result="#trace.newX"></in-put>
+      <in-put type="analog" pin="1" report="30" low="1023" hi="0" result="#trace.newY"></in-put>
+      <in-put id="volumeControl" type="analog" pin="2" report="30" low="0" hi="1023"></in-put>
+      <in-put id="authKey" type="digital" debounce="100" pin="2"></in-put>
+      <in-put id="powerSwitch" type="digital" debounce="100" pin="3"></in-put>
+    </hard-ware> -->
+    <config-file file="data/config.xml"></config-file>
+    <template id="promptTemp">
+      <div class="cnsln">
+        <br />
+        <span class="prompt">Here</span>&nbsp;<span class="fld"></span>
+        <span class="cursor">&blk12;</span>
+        <!-- <div>
+          <span>$&nbsp;</span>
+
+        </div> -->
+        <br />
+      </div>
+      </div>
+    </template>
+  </head>
+  <body>
+    <div id="console">
+      <div>RFIDefeater v. 2.0</div>
+      <div class='cnsln'>
+        <br />
+        <div classPrompt>Enter code to unlock:
+          <span class='fld' style='-webkit-text-security: disc;'></span>
+          <div class="cursor">&blk12;</div>
+        </div>
+      </div>
+    </div>
+    <div id='responses'>
+      <div id='code' ok='Welcome, ADMIN!' err='Sorry, try again.'>
+        <div class='ok'>
+          <br />
+          <div>Welcome, ADMIN! Answer the following questions to bypass lock:</div>
+        </div>
+        <div class='err'>
+          <br />
+          <div>Sorry, try again.</div>
+        </div>
+      </div>
+      <div id='reg'>
+        <div class='ok'>
+          <br />
+          <div>Data accepted.</div>
+        </div>
+        <div class='err'>
+          <br />
+          <div>Invalid entry; try again.</div>
+        </div>
+      </div>
+      <div id='final'>
+        <div class='ok'>
+          <br />
+          <div>All answers correct; beginning unlock sequence</div>
+        </div>
+        <div class='err'>
+          <br />
+          <div>Invalid entry; try again.</div>
+        </div>
+      </div>
+      <div id='done'>
+        <br />
+        <div>Door is unlocked. It is now safe to unplug your device.</div>
+      </div>
+    </div>
+    <div id='questions'>
+      <div ans='73615539' resp='code' time='2'>Enter code to unlock:</div>
+      <div ans='Ted&nbsp;Warnik' resp='reg' time='10'>Victim's name:</div>
+      <div ans='4181' resp='reg' time='10'>House number:</div>
+      <div ans='Oak' resp='reg' time='10'>Street:</div>
+      <div ans='Minneapolis' resp='reg' time='10'>City:</div>
+      <div ans='06/19/17' resp='final' time='10'>Date (MM/DD/YY):</div>
+    </div>
+    <!-- Titles -->
+
+    <!-- Dialog overlay -->
+    <ul id="keyboard">
+  		<li class="symbol"><span class="off">`</span><span class="on" >~</span></li>
+  		<li class="symbol"><span class="off">1</span><span class="on" >!</span></li>
+  		<li class="symbol"><span class="off">2</span><span class="on" >@</span></li>
+  		<li class="symbol"><span class="off">3</span><span class="on" >#</span></li>
+  		<li class="symbol"><span class="off">4</span><span class="on" >$</span></li>
+  		<li class="symbol"><span class="off">5</span><span class="on" >%</span></li>
+  		<li class="symbol"><span class="off">6</span><span class="on" >^</span></li>
+  		<li class="symbol"><span class="off">7</span><span class="on" >&amp;</span></li>
+  		<li class="symbol"><span class="off">8</span><span class="on" >*</span></li>
+  		<li class="symbol"><span class="off">9</span><span class="on" >(</span></li>
+  		<li class="symbol"><span class="off">0</span><span class="on" >)</span></li>
+  		<li class="symbol"><span class="off">-</span><span class="on" >_</span></li>
+  		<li class="symbol"><span class="off">=</span><span class="on" >+</span></li>
+  		<li class="delete lastitem">delete</li>
+  		<li class="tab">tab</li>
+  		<li class="letter">q</li>
+  		<li class="letter">w</li>
+  		<li class="letter">e</li>
+  		<li class="letter">r</li>
+  		<li class="letter">t</li>
+  		<li class="letter">y</li>
+  		<li class="letter">u</li>
+  		<li class="letter">i</li>
+  		<li class="letter">o</li>
+  		<li class="letter">p</li>
+  		<li class="symbol"><span class="off">[</span><span class="on" >{</span></li>
+  		<li class="symbol"><span class="off">]</span><span class="on" >}</span></li>
+  		<li class="symbol lastitem"><span class="off">\</span><span class="on" >|</span></li>
+  		<li class="capslock">caps lock</li>
+  		<li class="letter">a</li>
+  		<li class="letter">s</li>
+  		<li class="letter">d</li>
+  		<li class="letter">f</li>
+  		<li class="letter">g</li>
+  		<li class="letter">h</li>
+  		<li class="letter">j</li>
+  		<li class="letter">k</li>
+  		<li class="letter">l</li>
+  		<li class="symbol"><span class="off">;</span><span class="on" >:</span></li>
+  		<li class="symbol"><span class="off">'</span><span class="on" >"</span></li>
+  		<li class="return">return</li>
+  		<li class="left-shift">shift</li>
+  		<li class="letter">z</li>
+  		<li class="letter">x</li>
+  		<li class="letter">c</li>
+  		<li class="letter">v</li>
+  		<li class="letter">b</li>
+  		<li class="letter">n</li>
+  		<li class="letter">m</li>
+  		<li class="symbol"><span class="off">,</span><span class="on" >&lt;</span></li>
+  		<li class="symbol"><span class="off">.</span><span class="on" >&gt;</span></li>
+  		<li class="symbol"><span class="off">/</span><span class="on" >?</span></li>
+  		<li class="right-shift">shift</li>
+  		<li class="space lastitem">&nbsp;</li>
+  	</ul>
+    <div id='splash'></div>
+  </body>
+
+  <script>
+    require('./src/app.js');
+  </script>
+</html>

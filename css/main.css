@@ -1,0 +1,69 @@
+body {
+  text-align: left;
+  background-color: black;
+  font-family: "Lucida Console", Monaco, monospace;
+  color: #aaa;/*color: #080;*/
+  cursor: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.overlay {
+  position: absolute;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  left: 0px;
+  top: 0px;
+}
+
+#splash {
+  position: absolute;
+  width:100%;
+  height: 100%;
+  left: 0px;
+  top: -10px;
+  background: url("../img/splash.png");
+  background-size: cover;
+}
+
+#console {
+  height: 45vh;
+  overflow: hidden;
+  color: #0f0;
+}
+
+.prompt {
+  color: #0f0;
+}
+
+.ok {
+  color: #ff0;
+}
+
+.err {
+  color: #f00;
+}
+
+.cursor {
+  color: #0f0;
+  position: relative;
+  left: -.5em;
+  animation: blink 1s step-end infinite;
+  display:inline-block;
+}
+
+@keyframes blink {
+  0% {visibility: hidden;}
+  50% {visibility: visible;}
+}
+
+#responses {
+  display: none;
+}
+
+#questions {
+  display: none;
+}
