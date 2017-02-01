@@ -10,7 +10,8 @@ var webFrame = require('electron').webFrame;
 webFrame.setZoomLevelLimits(1, 1);
 
 var cur = µ('#console .cnsln');
-var ques = µ('#questions').firstElementChild;
+var ques = require('./questions.js').settings.questions;//µ('#questions').firstElementChild;
+var qIndex = 0;
 
 setTimeout(()=> {
   µ('#splash').style.display = 'none';
@@ -62,8 +63,10 @@ function newPrompt(text) {
 var checkAnswer = ()=> {
   µ('.cursor', cur)[0].style.display = 'none';
   var fld = µ('.fld', cur)[0];
-  if (fld.textContent == µ('|>ans', ques)) {
-    var resp = µ('#' + µ('|>resp', ques) + ' .ok', µ('#responses')).cloneNode(true);
+  /*if (fld.textContent == µ('|>ans', ques)) {
+    var resp = µ('#' + µ('|>resp', ques) + ' .ok', µ('#responses')).cloneNode(true);*/
+  if (fld.textContent == ques[qIndex].ans) {
+    var resp = µ('#' + ques[qIndex].resp + ' .ok', µ('#responses')).cloneNode(true);
     µ('#console').appendChild(resp);
     µ('#console').scrollTop = µ('#console').scrollHeight;
     if (ques.nextElementSibling) {
@@ -106,7 +109,8 @@ var checkAnswer = ()=> {
     µ('#console').appendChild(cur);
     µ('#console').scrollTop = µ('#console').scrollHeight;
   } else {
-    var resp = µ('#' + µ('|>resp', ques) + ' .err', µ('#responses')).cloneNode(true);
+    //var resp = µ('#' + µ('|>resp', ques) + ' .err', µ('#responses')).cloneNode(true);
+    var resp = µ('#' + ques[qIndex].resp + ' .err', µ('#responses')).cloneNode(true);
     µ('#console').appendChild(resp);
     setTimeout(()=> {
       cur = cur.cloneNode(true);
@@ -114,7 +118,7 @@ var checkAnswer = ()=> {
       µ('.fld', cur)[0].textContent = '';
       µ('#console').appendChild(cur);
       µ('#console').scrollTop = µ('#console').scrollHeight;
-    }, µ('|>time', ques));
+    }, ques[qIndex].time);
   }
 };
 
