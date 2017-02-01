@@ -3,6 +3,8 @@ var rpio = require('rpio');
 
 /* Configure P11 as an output pin, setting its initial state to low */
 
+rpio.init({mapping: 'physical'});
+
 //rpio.open(11, rpio.OUTPUT, rpio.LOW);
 //rpio.open(13, rpio.OUTPUT, rpio.LOW);
 //rpio.open(15, rpio.INPUT, rpio.PULL_DOWN);
