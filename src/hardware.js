@@ -10,7 +10,7 @@ rpio.init({ mapping: 'gpio' });
 //rpio.open(15, rpio.INPUT, rpio.PULL_DOWN);
 
 rpio.open(24, rpio.OUTPUT, rpio.LOW);
-rpio.open(23, rpio.INPUT, rpio.PULL_DOWN);
+rpio.open(23, rpio.INPUT, rpio.PULL_OFF);
 
 /*function oldPollCB(pin) {
   if (!rpio.read(pin)) {
