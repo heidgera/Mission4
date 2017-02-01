@@ -59,7 +59,7 @@ exports.setDeleteHandler = (cb)=> {
 
     // Special characters
     if (_this.className.includes('symbol')) character = µ('span.' + ((shift) ? 'on' : 'off'), _this)[0].innerHTML;
-    if (_this.className.includes('space')) character = String.fromCharCode(160);
+    if (_this.className.includes('space')) character = ' ';
     if (_this.className.includes('tab')) character = '\t';
     if (_this.className.includes('return')) character = '\n';
 

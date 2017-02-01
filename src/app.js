@@ -69,10 +69,11 @@ var checkAnswer = ()=> {
     var resp = µ('#' + ques[qIndex].resp + ' .ok', µ('#responses')).cloneNode(true);
     µ('#console').appendChild(resp);
     µ('#console').scrollTop = µ('#console').scrollHeight;
-    if (ques.nextElementSibling) {
+    if (qIndex < ques.length - 1) {
       setTimeout(()=> {
-        ques = ques.nextElementSibling;
-        cur = newPrompt(ques.textContent);
+        //ques = ques ;
+        qIndex++;
+        cur = newPrompt(ques[qIndex].text);
         µ('.cursor', cur)[0].style.display = 'inline-block';
         µ('#console').appendChild(cur);
         µ('#console').scrollTop = µ('#console').scrollHeight;
@@ -128,7 +129,6 @@ document.onkeypress = function(e) {
   var keyCode = (window.event) ? e.which : e.keyCode;
 
   if (keyCode >= 32 && keyCode <= 126) {            // 'a' = Screen activity button
-    if (keyCode == 32) keyCode = 160, console.log('space'); //160
     if (cur) {
       var fld = µ('.fld', cur)[0];
       var newChar = String.fromCharCode(keyCode);

@@ -1,8 +1,8 @@
 {"questions":[
   {"ans":"73615539","resp":"code","time":2,"text":"Enter code to unlock:"},
-  {"ans":"Ted&nbsp;Warnik","resp":"reg","time":10,"text":"Victim's name:"},
+  {"ans":"Ted Warnik","resp":"reg","time":10,"text":"Victim's name:"},
   {"ans":"4181","resp":"reg","time":10,"text":"House number:"},
   {"ans":"Oak","resp":"reg","time":10,"text":"Street:"},
   {"ans":"Minneapolis","resp":"reg","time":10,"text":"City:"},
-  {"ans":"06/19/17","resp":"final","time":10,"text":"Date (MM/DD/YY):"},
+  {"ans":"06/19/17","resp":"final","time":10,"text":"Date (MM/DD/YY):"}
 ]}
