@@ -10,7 +10,8 @@ var webFrame = require('electron').webFrame;
 webFrame.setZoomLevelLimits(1, 1);
 
 var cur = µ('#console .cnsln');
-var ques = require('./questions.js').settings.questions;//µ('#questions').firstElementChild;
+var settings = require('./questions.js').settings;
+var ques = settings.questions;//µ('#questions').firstElementChild;
 var qIndex = 0;
 
 setTimeout(()=> {
@@ -65,6 +66,7 @@ var checkAnswer = ()=> {
   var fld = µ('.fld', cur)[0];
   /*if (fld.textContent == µ('|>ans', ques)) {
     var resp = µ('#' + µ('|>resp', ques) + ' .ok', µ('#responses')).cloneNode(true);*/
+  let spl = fld.textContent.split(/[\(\),]+/);
   if (fld.textContent == ques[qIndex].ans) {
     var resp = µ('#' + ques[qIndex].resp + ' .ok', µ('#responses')).cloneNode(true);
     µ('#console').appendChild(resp);
@@ -109,6 +111,31 @@ var checkAnswer = ()=> {
     µ('.cursor', cur)[0].style.display = 'inline-block';
     µ('#console').appendChild(cur);
     µ('#console').scrollTop = µ('#console').scrollHeight;
+  } else if (spl.length > 1 && spl[0] == 'changeAnswer') {
+    ques[qIndex].ans = spl[1];
+    require('./questions.js').save(settings);
+    cur = newPrompt('Answer successfully changed');
+    µ('.cursor', cur)[0].style.display = 'none';
+    µ('#console').appendChild(cur);
+    µ('#console').scrollTop = µ('#console').scrollHeight;
+    setTimeout(()=> {
+      cur = newPrompt(ques[qIndex].text);
+      µ('.cursor', cur)[0].style.display = 'inline-block';
+      µ('#console').appendChild(cur);
+      µ('#console').scrollTop = µ('#console').scrollHeight;
+    }, 2000);
+  } else if (spl.length > 2 && spl[0] == 'setupWifi') {
+    require('./wifi.js').writeConfig(spl[1], spl[2]);
+    cur = newPrompt('Successfully configured wifi.');
+    µ('.cursor', cur)[0].style.display = 'none';
+    µ('#console').appendChild(cur);
+    µ('#console').scrollTop = µ('#console').scrollHeight;
+    setTimeout(()=> {
+      cur = newPrompt(ques[qIndex].text);
+      µ('.cursor', cur)[0].style.display = 'inline-block';
+      µ('#console').appendChild(cur);
+      µ('#console').scrollTop = µ('#console').scrollHeight;
+    }, 2000);
   } else {
     //var resp = µ('#' + µ('|>resp', ques) + ' .err', µ('#responses')).cloneNode(true);
     var resp = µ('#' + ques[qIndex].resp + ' .err', µ('#responses')).cloneNode(true);
