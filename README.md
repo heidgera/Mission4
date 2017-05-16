@@ -3,7 +3,7 @@
 Raspberry pi based RFID 'hacker'.
 
 ## Disclaimer
-Not complete documentation, but 
+Not complete documentation, but enough to get you started.
 
 ## Technical highlights
 
@@ -24,3 +24,17 @@ In .bashrc:
 
 raspi-config: 
 	Boot options: cmdline with autologin
+
+## Commands available in program:
+
+*To Change Answers:*
+
+changeAnswer(NEW_ANSWER)
+
+*To setup wifi:*
+
+setupWifi(NETWORK_NAME,NETWORK_PASSWORD)
+
+*To display current IP address:*
+
+ipaddress
