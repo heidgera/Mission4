@@ -13,7 +13,7 @@ sudo dtc -I dts -O dtb -o /boot/dt-blob.bin my-blob.dts
 echo "Installing dependencies for application:"
 
 npm config set disturl https://atom.io/download/atom-shell
-npm config set target 1.3.15
+npm config set target 1.4.15
 npm config set runtime electron
 
 npm i
