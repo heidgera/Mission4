@@ -4,7 +4,7 @@ console.log('here we go');
 
 require('./vendor/Muse/utils.js');
 
-//var hardware = require('./hardware.js');
+var hardware = require('./hardware.js');
 
 var webFrame = require('electron').webFrame;
 webFrame.setZoomLevelLimits(1, 1);
@@ -82,7 +82,7 @@ var checkAnswer = ()=> {
       }, 1000);
     } else {
       setTimeout(()=> {
-        //hardware.writeOutput(1);
+        hardware.writeOutput(1);
       }, 1000);
       setTimeout(()=> {
         var resp = µ('#done', µ('#responses')).cloneNode(true);
