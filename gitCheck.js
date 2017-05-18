@@ -50,13 +50,34 @@ checkout.outHandler = (data)=> {
   console.log(data);
 };
 
+var submodules = new Call('git');
+checkout.setArguments(['submodule', 'update']);
+checkout.outHandler = (data)=> {
+  console.log(data);
+};
+
+var init = new Call('git');
+checkout.setArguments(['submodule', 'init']);
+checkout.outHandler = (data)=> {
+  console.log(data);
+};
+
 checkout.onClose = ()=> {
   pull.run();
 };
 
+init.onClose = ()=> {
+  submodules.run();
+};
+
 pull.onClose = ()=> {
+  init.run();
+};
+
+submodules.onClose = ()=> {
   console.log('Updated!');
-  location.reload();
+
+  //location.reload();
 };
 
 var compare = ()=> {

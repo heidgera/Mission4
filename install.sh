@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+echo "Init the submodules:"
+
+git submodule init
+git submodule update
+
 echo "Adding Adafruit Declarations and installing node:"
 
 curl -sLS https://apt.adafruit.com/add | sudo bash
